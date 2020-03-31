@@ -1,4 +1,4 @@
-grammar brainfuck;
+grammar Brainfuck;
 
 file: expression*;
 
