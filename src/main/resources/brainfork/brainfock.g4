@@ -4,7 +4,7 @@ file: expression*;
 
 expression: operator | LPARENTHESES expression* RPARENTHESES;
 
-operator: GREATER | LOWER | PLUS | MINUS | DOT | COMMA;
+operator: GREATER | LOWER | PLUS | MINUS | DOT | COMMA | FORK;
 
 GREATER: '>';
 LOWER: '<';

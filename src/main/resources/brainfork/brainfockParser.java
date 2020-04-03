@@ -121,7 +121,7 @@ public class brainfockParser extends Parser {
 			setState(9);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA) | (1L << LPARENTHESES))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA) | (1L << LPARENTHESES) | (1L << FORK))) != 0)) {
 				{
 				{
 				setState(6);
@@ -185,6 +185,7 @@ public class brainfockParser extends Parser {
 			case MINUS:
 			case DOT:
 			case COMMA:
+			case FORK:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(12);
@@ -199,7 +200,7 @@ public class brainfockParser extends Parser {
 				setState(17);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA) | (1L << LPARENTHESES))) != 0)) {
+				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA) | (1L << LPARENTHESES) | (1L << FORK))) != 0)) {
 					{
 					{
 					setState(14);
@@ -236,6 +237,7 @@ public class brainfockParser extends Parser {
 		public TerminalNode MINUS() { return getToken(brainfockParser.MINUS, 0); }
 		public TerminalNode DOT() { return getToken(brainfockParser.DOT, 0); }
 		public TerminalNode COMMA() { return getToken(brainfockParser.COMMA, 0); }
+		public TerminalNode FORK() { return getToken(brainfockParser.FORK, 0); }
 		public OperatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -259,7 +261,7 @@ public class brainfockParser extends Parser {
 			{
 			setState(23);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA) | (1L << FORK))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -283,12 +285,12 @@ public class brainfockParser extends Parser {
 	public static final String _serializedATN =
 		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\f\34\4\2\t\2\4\3"+
 		"\t\3\4\4\t\4\3\2\7\2\n\n\2\f\2\16\2\r\13\2\3\3\3\3\3\3\7\3\22\n\3\f\3"+
-		"\16\3\25\13\3\3\3\5\3\30\n\3\3\4\3\4\3\4\2\2\5\2\4\6\2\3\3\2\3\b\2\33"+
-		"\2\13\3\2\2\2\4\27\3\2\2\2\6\31\3\2\2\2\b\n\5\4\3\2\t\b\3\2\2\2\n\r\3"+
-		"\2\2\2\13\t\3\2\2\2\13\f\3\2\2\2\f\3\3\2\2\2\r\13\3\2\2\2\16\30\5\6\4"+
-		"\2\17\23\7\t\2\2\20\22\5\4\3\2\21\20\3\2\2\2\22\25\3\2\2\2\23\21\3\2\2"+
-		"\2\23\24\3\2\2\2\24\26\3\2\2\2\25\23\3\2\2\2\26\30\7\n\2\2\27\16\3\2\2"+
-		"\2\27\17\3\2\2\2\30\5\3\2\2\2\31\32\t\2\2\2\32\7\3\2\2\2\5\13\23\27";
+		"\16\3\25\13\3\3\3\5\3\30\n\3\3\4\3\4\3\4\2\2\5\2\4\6\2\3\4\2\3\b\13\13"+
+		"\2\33\2\13\3\2\2\2\4\27\3\2\2\2\6\31\3\2\2\2\b\n\5\4\3\2\t\b\3\2\2\2\n"+
+		"\r\3\2\2\2\13\t\3\2\2\2\13\f\3\2\2\2\f\3\3\2\2\2\r\13\3\2\2\2\16\30\5"+
+		"\6\4\2\17\23\7\t\2\2\20\22\5\4\3\2\21\20\3\2\2\2\22\25\3\2\2\2\23\21\3"+
+		"\2\2\2\23\24\3\2\2\2\24\26\3\2\2\2\25\23\3\2\2\2\26\30\7\n\2\2\27\16\3"+
+		"\2\2\2\27\17\3\2\2\2\30\5\3\2\2\2\31\32\t\2\2\2\32\7\3\2\2\2\5\13\23\27";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
