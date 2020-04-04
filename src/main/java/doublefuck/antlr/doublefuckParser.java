@@ -1,15 +1,19 @@
-// Generated from brainfock.g4 by ANTLR 4.8
-import org.antlr.v4.runtime.atn.*;
-import org.antlr.v4.runtime.dfa.DFA;
+// Generated from doublefuck.g4 by ANTLR 4.8
+package doublefuck.antlr;
+
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.misc.*;
-import org.antlr.v4.runtime.tree.*;
+import org.antlr.v4.runtime.atn.ATN;
+import org.antlr.v4.runtime.atn.ATNDeserializer;
+import org.antlr.v4.runtime.atn.ParserATNSimulator;
+import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.tree.ParseTreeListener;
+import org.antlr.v4.runtime.tree.TerminalNode;
+
 import java.util.List;
-import java.util.Iterator;
-import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class brainfockParser extends Parser {
+public class doublefuckParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.8", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -17,7 +21,8 @@ public class brainfockParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		GREATER=1, LOWER=2, PLUS=3, MINUS=4, DOT=5, COMMA=6, LPARENTHESES=7, RPARENTHESES=8, 
-		FORK=9, WS=10;
+		V=9, POWER=10, SLASH=11, BACKSLASH=12, COLON=13, SEMICOLON=14, LBRACKET=15, 
+		RBRACKET=16, WS=17;
 	public static final int
 		RULE_file = 0, RULE_expression = 1, RULE_operator = 2;
 	private static String[] makeRuleNames() {
@@ -29,14 +34,16 @@ public class brainfockParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'>'", "'<'", "'+'", "'-'", "'.'", "','", "'['", "']'", "'Y'"
+			null, "'>'", "'<'", "'+'", "'-'", "'.'", "','", "'['", "']'", "'v'", 
+			"'^'", "'/'", "'\\'", "':'", "';'", "'{'", "'}'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, "GREATER", "LOWER", "PLUS", "MINUS", "DOT", "COMMA", "LPARENTHESES", 
-			"RPARENTHESES", "FORK", "WS"
+			"RPARENTHESES", "V", "POWER", "SLASH", "BACKSLASH", "COLON", "SEMICOLON", 
+			"LBRACKET", "RBRACKET", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -74,7 +81,7 @@ public class brainfockParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "brainfock.g4"; }
+	public String getGrammarFileName() { return "doublefuck.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -85,7 +92,7 @@ public class brainfockParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public brainfockParser(TokenStream input) {
+	public doublefuckParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -103,11 +110,11 @@ public class brainfockParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_file; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof brainfockListener ) ((brainfockListener)listener).enterFile(this);
+			if ( listener instanceof doublefuckListener ) ((doublefuckListener)listener).enterFile(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof brainfockListener ) ((brainfockListener)listener).exitFile(this);
+			if ( listener instanceof doublefuckListener ) ((doublefuckListener)listener).exitFile(this);
 		}
 	}
 
@@ -121,7 +128,7 @@ public class brainfockParser extends Parser {
 			setState(9);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA) | (1L << LPARENTHESES) | (1L << FORK))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA) | (1L << LPARENTHESES) | (1L << V) | (1L << POWER) | (1L << SLASH) | (1L << BACKSLASH) | (1L << COLON) | (1L << SEMICOLON) | (1L << LBRACKET))) != 0)) {
 				{
 				{
 				setState(6);
@@ -149,25 +156,27 @@ public class brainfockParser extends Parser {
 		public OperatorContext operator() {
 			return getRuleContext(OperatorContext.class,0);
 		}
-		public TerminalNode LPARENTHESES() { return getToken(brainfockParser.LPARENTHESES, 0); }
-		public TerminalNode RPARENTHESES() { return getToken(brainfockParser.RPARENTHESES, 0); }
+		public TerminalNode LPARENTHESES() { return getToken(doublefuckParser.LPARENTHESES, 0); }
+		public TerminalNode RPARENTHESES() { return getToken(doublefuckParser.RPARENTHESES, 0); }
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
+		public TerminalNode LBRACKET() { return getToken(doublefuckParser.LBRACKET, 0); }
+		public TerminalNode RBRACKET() { return getToken(doublefuckParser.RBRACKET, 0); }
 		public ExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expression; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof brainfockListener ) ((brainfockListener)listener).enterExpression(this);
+			if ( listener instanceof doublefuckListener ) ((doublefuckListener)listener).enterExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof brainfockListener ) ((brainfockListener)listener).exitExpression(this);
+			if ( listener instanceof doublefuckListener ) ((doublefuckListener)listener).exitExpression(this);
 		}
 	}
 
@@ -176,7 +185,7 @@ public class brainfockParser extends Parser {
 		enterRule(_localctx, 2, RULE_expression);
 		int _la;
 		try {
-			setState(21);
+			setState(29);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case GREATER:
@@ -185,7 +194,12 @@ public class brainfockParser extends Parser {
 			case MINUS:
 			case DOT:
 			case COMMA:
-			case FORK:
+			case V:
+			case POWER:
+			case SLASH:
+			case BACKSLASH:
+			case COLON:
+			case SEMICOLON:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(12);
@@ -200,7 +214,7 @@ public class brainfockParser extends Parser {
 				setState(17);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA) | (1L << LPARENTHESES) | (1L << FORK))) != 0)) {
+				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA) | (1L << LPARENTHESES) | (1L << V) | (1L << POWER) | (1L << SLASH) | (1L << BACKSLASH) | (1L << COLON) | (1L << SEMICOLON) | (1L << LBRACKET))) != 0)) {
 					{
 					{
 					setState(14);
@@ -213,6 +227,29 @@ public class brainfockParser extends Parser {
 				}
 				setState(20);
 				match(RPARENTHESES);
+				}
+				break;
+			case LBRACKET:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(21);
+				match(LBRACKET);
+				setState(25);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA) | (1L << LPARENTHESES) | (1L << V) | (1L << POWER) | (1L << SLASH) | (1L << BACKSLASH) | (1L << COLON) | (1L << SEMICOLON) | (1L << LBRACKET))) != 0)) {
+					{
+					{
+					setState(22);
+					expression();
+					}
+					}
+					setState(27);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				setState(28);
+				match(RBRACKET);
 				}
 				break;
 			default:
@@ -231,24 +268,29 @@ public class brainfockParser extends Parser {
 	}
 
 	public static class OperatorContext extends ParserRuleContext {
-		public TerminalNode GREATER() { return getToken(brainfockParser.GREATER, 0); }
-		public TerminalNode LOWER() { return getToken(brainfockParser.LOWER, 0); }
-		public TerminalNode PLUS() { return getToken(brainfockParser.PLUS, 0); }
-		public TerminalNode MINUS() { return getToken(brainfockParser.MINUS, 0); }
-		public TerminalNode DOT() { return getToken(brainfockParser.DOT, 0); }
-		public TerminalNode COMMA() { return getToken(brainfockParser.COMMA, 0); }
-		public TerminalNode FORK() { return getToken(brainfockParser.FORK, 0); }
+		public TerminalNode GREATER() { return getToken(doublefuckParser.GREATER, 0); }
+		public TerminalNode LOWER() { return getToken(doublefuckParser.LOWER, 0); }
+		public TerminalNode PLUS() { return getToken(doublefuckParser.PLUS, 0); }
+		public TerminalNode MINUS() { return getToken(doublefuckParser.MINUS, 0); }
+		public TerminalNode DOT() { return getToken(doublefuckParser.DOT, 0); }
+		public TerminalNode COMMA() { return getToken(doublefuckParser.COMMA, 0); }
+		public TerminalNode V() { return getToken(doublefuckParser.V, 0); }
+		public TerminalNode POWER() { return getToken(doublefuckParser.POWER, 0); }
+		public TerminalNode SLASH() { return getToken(doublefuckParser.SLASH, 0); }
+		public TerminalNode BACKSLASH() { return getToken(doublefuckParser.BACKSLASH, 0); }
+		public TerminalNode COLON() { return getToken(doublefuckParser.COLON, 0); }
+		public TerminalNode SEMICOLON() { return getToken(doublefuckParser.SEMICOLON, 0); }
 		public OperatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_operator; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof brainfockListener ) ((brainfockListener)listener).enterOperator(this);
+			if ( listener instanceof doublefuckListener ) ((doublefuckListener)listener).enterOperator(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof brainfockListener ) ((brainfockListener)listener).exitOperator(this);
+			if ( listener instanceof doublefuckListener ) ((doublefuckListener)listener).exitOperator(this);
 		}
 	}
 
@@ -259,9 +301,9 @@ public class brainfockParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(23);
+			setState(31);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA) | (1L << FORK))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA) | (1L << V) | (1L << POWER) | (1L << SLASH) | (1L << BACKSLASH) | (1L << COLON) | (1L << SEMICOLON))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -283,14 +325,17 @@ public class brainfockParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\f\34\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\3\2\7\2\n\n\2\f\2\16\2\r\13\2\3\3\3\3\3\3\7\3\22\n\3\f\3"+
-		"\16\3\25\13\3\3\3\5\3\30\n\3\3\4\3\4\3\4\2\2\5\2\4\6\2\3\4\2\3\b\13\13"+
-		"\2\33\2\13\3\2\2\2\4\27\3\2\2\2\6\31\3\2\2\2\b\n\5\4\3\2\t\b\3\2\2\2\n"+
-		"\r\3\2\2\2\13\t\3\2\2\2\13\f\3\2\2\2\f\3\3\2\2\2\r\13\3\2\2\2\16\30\5"+
-		"\6\4\2\17\23\7\t\2\2\20\22\5\4\3\2\21\20\3\2\2\2\22\25\3\2\2\2\23\21\3"+
-		"\2\2\2\23\24\3\2\2\2\24\26\3\2\2\2\25\23\3\2\2\2\26\30\7\n\2\2\27\16\3"+
-		"\2\2\2\27\17\3\2\2\2\30\5\3\2\2\2\31\32\t\2\2\2\32\7\3\2\2\2\5\13\23\27";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\23$\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\3\2\7\2\n\n\2\f\2\16\2\r\13\2\3\3\3\3\3\3\7\3\22\n\3\f\3\16"+
+		"\3\25\13\3\3\3\3\3\3\3\7\3\32\n\3\f\3\16\3\35\13\3\3\3\5\3 \n\3\3\4\3"+
+		"\4\3\4\2\2\5\2\4\6\2\3\4\2\3\b\13\20\2%\2\13\3\2\2\2\4\37\3\2\2\2\6!\3"+
+		"\2\2\2\b\n\5\4\3\2\t\b\3\2\2\2\n\r\3\2\2\2\13\t\3\2\2\2\13\f\3\2\2\2\f"+
+		"\3\3\2\2\2\r\13\3\2\2\2\16 \5\6\4\2\17\23\7\t\2\2\20\22\5\4\3\2\21\20"+
+		"\3\2\2\2\22\25\3\2\2\2\23\21\3\2\2\2\23\24\3\2\2\2\24\26\3\2\2\2\25\23"+
+		"\3\2\2\2\26 \7\n\2\2\27\33\7\21\2\2\30\32\5\4\3\2\31\30\3\2\2\2\32\35"+
+		"\3\2\2\2\33\31\3\2\2\2\33\34\3\2\2\2\34\36\3\2\2\2\35\33\3\2\2\2\36 \7"+
+		"\22\2\2\37\16\3\2\2\2\37\17\3\2\2\2\37\27\3\2\2\2 \5\3\2\2\2!\"\t\2\2"+
+		"\2\"\7\3\2\2\2\6\13\23\33\37";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

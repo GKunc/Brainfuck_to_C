@@ -1,15 +1,19 @@
-// Generated from Brainfuck.g4 by ANTLR 4.8
-import org.antlr.v4.runtime.atn.*;
-import org.antlr.v4.runtime.dfa.DFA;
+// Generated from brainfuck.g4 by ANTLR 4.8
+package brainfuck.antlr;
+
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.misc.*;
-import org.antlr.v4.runtime.tree.*;
+import org.antlr.v4.runtime.atn.ATN;
+import org.antlr.v4.runtime.atn.ATNDeserializer;
+import org.antlr.v4.runtime.atn.ParserATNSimulator;
+import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.tree.ParseTreeListener;
+import org.antlr.v4.runtime.tree.TerminalNode;
+
 import java.util.List;
-import java.util.Iterator;
-import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class BrainfuckParser extends Parser {
+public class brainfuckParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.8", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -74,7 +78,7 @@ public class BrainfuckParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Brainfuck.g4"; }
+	public String getGrammarFileName() { return "brainfuck.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -85,7 +89,7 @@ public class BrainfuckParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public BrainfuckParser(TokenStream input) {
+	public brainfuckParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -103,11 +107,11 @@ public class BrainfuckParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_file; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuckListener ) ((BrainfuckListener)listener).enterFile(this);
+			if ( listener instanceof brainfuckListener ) ((brainfuckListener)listener).enterFile(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuckListener ) ((BrainfuckListener)listener).exitFile(this);
+			if ( listener instanceof brainfuckListener ) ((brainfuckListener)listener).exitFile(this);
 		}
 	}
 
@@ -149,8 +153,8 @@ public class BrainfuckParser extends Parser {
 		public OperatorContext operator() {
 			return getRuleContext(OperatorContext.class,0);
 		}
-		public TerminalNode LPARENTHESES() { return getToken(BrainfuckParser.LPARENTHESES, 0); }
-		public TerminalNode RPARENTHESES() { return getToken(BrainfuckParser.RPARENTHESES, 0); }
+		public TerminalNode LPARENTHESES() { return getToken(brainfuckParser.LPARENTHESES, 0); }
+		public TerminalNode RPARENTHESES() { return getToken(brainfuckParser.RPARENTHESES, 0); }
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
@@ -163,11 +167,11 @@ public class BrainfuckParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_expression; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuckListener ) ((BrainfuckListener)listener).enterExpression(this);
+			if ( listener instanceof brainfuckListener ) ((brainfuckListener)listener).enterExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuckListener ) ((BrainfuckListener)listener).exitExpression(this);
+			if ( listener instanceof brainfuckListener ) ((brainfuckListener)listener).exitExpression(this);
 		}
 	}
 
@@ -230,23 +234,23 @@ public class BrainfuckParser extends Parser {
 	}
 
 	public static class OperatorContext extends ParserRuleContext {
-		public TerminalNode GREATER() { return getToken(BrainfuckParser.GREATER, 0); }
-		public TerminalNode LOWER() { return getToken(BrainfuckParser.LOWER, 0); }
-		public TerminalNode PLUS() { return getToken(BrainfuckParser.PLUS, 0); }
-		public TerminalNode MINUS() { return getToken(BrainfuckParser.MINUS, 0); }
-		public TerminalNode DOT() { return getToken(BrainfuckParser.DOT, 0); }
-		public TerminalNode COMMA() { return getToken(BrainfuckParser.COMMA, 0); }
+		public TerminalNode GREATER() { return getToken(brainfuckParser.GREATER, 0); }
+		public TerminalNode LOWER() { return getToken(brainfuckParser.LOWER, 0); }
+		public TerminalNode PLUS() { return getToken(brainfuckParser.PLUS, 0); }
+		public TerminalNode MINUS() { return getToken(brainfuckParser.MINUS, 0); }
+		public TerminalNode DOT() { return getToken(brainfuckParser.DOT, 0); }
+		public TerminalNode COMMA() { return getToken(brainfuckParser.COMMA, 0); }
 		public OperatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_operator; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuckListener ) ((BrainfuckListener)listener).enterOperator(this);
+			if ( listener instanceof brainfuckListener ) ((brainfuckListener)listener).enterOperator(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuckListener ) ((BrainfuckListener)listener).exitOperator(this);
+			if ( listener instanceof brainfuckListener ) ((brainfuckListener)listener).exitOperator(this);
 		}
 	}
 

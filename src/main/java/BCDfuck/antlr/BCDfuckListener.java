@@ -1,4 +1,6 @@
 // Generated from BCDfuck.g4 by ANTLR 4.8
+package BCDfuck.antlr;
+
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**

@@ -1,4 +1,6 @@
 // Generated from brainfock.g4 by ANTLR 4.8
+package brainfork.antlr;
+
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**

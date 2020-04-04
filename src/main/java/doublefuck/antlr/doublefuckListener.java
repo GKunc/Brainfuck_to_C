@@ -1,4 +1,6 @@
 // Generated from doublefuck.g4 by ANTLR 4.8
+package doublefuck.antlr;
+
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
