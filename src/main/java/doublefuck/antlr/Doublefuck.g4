@@ -1,4 +1,4 @@
-grammar doublefuck;
+grammar Doublefuck;
 
 file: expression*;
 

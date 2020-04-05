@@ -1,10 +1,10 @@
-grammar brainfock;
+grammar Brainfuck;
 
 file: expression*;
 
 expression: operator | LPARENTHESES expression* RPARENTHESES;
 
-operator: GREATER | LOWER | PLUS | MINUS | DOT | COMMA | FORK;
+operator: GREATER | LOWER | PLUS | MINUS | DOT | COMMA;
 
 GREATER: '>';
 LOWER: '<';
@@ -14,5 +14,4 @@ DOT: '.';
 COMMA: ',';
 LPARENTHESES: '[';
 RPARENTHESES: ']';
-FORK: 'Y';
 WS: . -> skip;

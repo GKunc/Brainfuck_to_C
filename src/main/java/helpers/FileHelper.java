@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class FileHelper {
-    public static String readFile(String path) throws FileNotFoundException {
+    public String readFile(String path) throws FileNotFoundException {
         File file = new File(path);
         Scanner sc = new Scanner(file);
 
@@ -16,7 +16,7 @@ public class FileHelper {
         return builder.toString();
     }
 
-    public static BufferedWriter generateFile(String path) throws IOException {
+    public BufferedWriter createBufferWriter(String path) throws IOException {
         FileWriter writer = new FileWriter(path);
         return new BufferedWriter(writer);
     }

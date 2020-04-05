@@ -1,51 +1,51 @@
-// Generated from doublefuck.g4 by ANTLR 4.8
+// Generated from Doublefuck.g4 by ANTLR 4.8
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link doublefuckListener},
+ * This class provides an empty implementation of {@link DoublefuckListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class doublefuckBaseListener implements doublefuckListener {
+public class DoublefuckBaseListener implements DoublefuckListener {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFile(doublefuckParser.FileContext ctx) { }
+	@Override public void enterFile(DoublefuckParser.FileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFile(doublefuckParser.FileContext ctx) { }
+	@Override public void exitFile(DoublefuckParser.FileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression(doublefuckParser.ExpressionContext ctx) { }
+	@Override public void enterExpression(DoublefuckParser.ExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression(doublefuckParser.ExpressionContext ctx) { }
+	@Override public void exitExpression(DoublefuckParser.ExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOperator(doublefuckParser.OperatorContext ctx) { }
+	@Override public void enterOperator(DoublefuckParser.OperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOperator(doublefuckParser.OperatorContext ctx) { }
+	@Override public void exitOperator(DoublefuckParser.OperatorContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

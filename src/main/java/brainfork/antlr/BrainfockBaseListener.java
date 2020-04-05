@@ -1,51 +1,51 @@
-// Generated from brainfock.g4 by ANTLR 4.8
+// Generated from Brainfock.g4 by ANTLR 4.8
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link brainfockListener},
+ * This class provides an empty implementation of {@link BrainfockListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class brainfockBaseListener implements brainfockListener {
+public class BrainfockBaseListener implements BrainfockListener {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFile(brainfockParser.FileContext ctx) { }
+	@Override public void enterFile(BrainfockParser.FileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFile(brainfockParser.FileContext ctx) { }
+	@Override public void exitFile(BrainfockParser.FileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression(brainfockParser.ExpressionContext ctx) { }
+	@Override public void enterExpression(BrainfockParser.ExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression(brainfockParser.ExpressionContext ctx) { }
+	@Override public void exitExpression(BrainfockParser.ExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOperator(brainfockParser.OperatorContext ctx) { }
+	@Override public void enterOperator(BrainfockParser.OperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOperator(brainfockParser.OperatorContext ctx) { }
+	@Override public void exitOperator(BrainfockParser.OperatorContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
