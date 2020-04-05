@@ -1,4 +1,5 @@
 // Generated from Brainfock.g4 by ANTLR 4.8
+package brainfork.antlr;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;

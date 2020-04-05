@@ -11,28 +11,32 @@ import java.io.IOException;
 
 public class Application {
     public static void main(String[] args) {
-        String inputFilePath = args[0];
-        String outputFilePath = args[1];
+        String inputFilePath = null;
+        String outputFilePath = null;
         String fileContent;
-
         BufferedWriter bufferedWriter;
-
         FileHelper fileHelper = new FileHelper();
-        ICompiler compiler = createCompiler(inputFilePath);
+        ICompiler compiler;
 
-        if(inputFilePath == null) {
+        try {
+            inputFilePath = args[0];
+        } catch (ArrayIndexOutOfBoundsException exception) {
             System.out.println("Nie podano ścieżki do pliku wejściowego!");
             return;
         }
-        if(outputFilePath == null) {
+
+        try {
+            outputFilePath = args[1];
+        } catch (ArrayIndexOutOfBoundsException exception) {
             System.out.println("Nie podano ścieżki do pliku wyjściowego!");
             System.out.println("Rezultat zostanie zapisany w katalogu języka jako 'compiledFile.c'!");
+            outputFilePath = "files/compiledFile.c";
         }
 
         try {
             fileContent = fileHelper.readFile(inputFilePath);
         } catch (FileNotFoundException exception) {
-            System.out.println("Nie można znaleźć pliku pod podaną ścieżką" + "'" + inputFilePath + "'!");
+            System.out.println("Nie można znaleźć pliku pod podaną ścieżką '" + inputFilePath + "'!");
             return;
         }
 
@@ -43,6 +47,7 @@ public class Application {
             return;
         }
 
+        compiler = createCompiler(inputFilePath);
         compiler.compile(fileContent, bufferedWriter);
 
         try {

@@ -12,6 +12,7 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.io.BufferedWriter;
 
+@SuppressWarnings("deprecation")
 public class BrainfuckCompiler implements ICompiler {
     public void compile(String sourceCode, BufferedWriter writer) {
         System.out.println("Start procesu kompilacji!");
