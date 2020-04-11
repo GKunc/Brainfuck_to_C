@@ -60,12 +60,16 @@ public class Application {
 
     private static ICompiler createCompiler(String filePath) {
         if(filePath.endsWith("BCDfuck")) {
+            System.out.println("BCDfuck");
             return new BCDfuckCompiler();
         } else if(filePath.endsWith("brainfork")) {
+            System.out.println("brainfork");
             return new BrainforkCompiler();
         } else if(filePath.endsWith("brainfuck")) {
+            System.out.println("brainfuck");
             return new BrainfuckCompiler();
         } else {
+            System.out.println("doublefuck");
             return new DoublefuckCompiler();
         }
     }
