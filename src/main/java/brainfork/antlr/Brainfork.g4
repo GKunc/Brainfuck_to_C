@@ -1,4 +1,4 @@
-grammar Brainfock;
+grammar Brainfork;
 
 file: expression*;
 

@@ -1,5 +1,6 @@
 package brainfuck;
 
+import brainfork.BrainforkListenerImplementation;
 import brainfuck.antlr.BrainfuckLexer;
 import brainfuck.antlr.BrainfuckParser;
 import interfaces.ICompiler;

@@ -1,4 +1,5 @@
-// Generated from Brainfock.g4 by ANTLR 4.8
+package brainfork.antlr;
+
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -9,7 +10,7 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class BrainfockLexer extends Lexer {
+public class BrainforkLexer extends Lexer {
 	static { RuntimeMetaData.checkVersion("4.8", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -81,13 +82,13 @@ public class BrainfockLexer extends Lexer {
 	}
 
 
-	public BrainfockLexer(CharStream input) {
+	public BrainforkLexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Brainfock.g4"; }
+	public String getGrammarFileName() { return "Brainfork.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
