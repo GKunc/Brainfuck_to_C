@@ -36,9 +36,13 @@ public class DoublefuckListenerImplementation implements DoublefuckListener {
             writer.write("{\n");
             indents++;
             putIndents();
-            writer.write("char array["+size+"] = {0};\n");
+            writer.write("char array1["+size+"] = {0};\n");
             putIndents();
-            writer.write("char *ptr=array;\n");
+            writer.write("char *ptr1=array1;\n");
+            putIndents();
+            writer.write("char array2["+size+"] = {0};\n");
+            putIndents();
+            writer.write("char *ptr2=array2;\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -61,7 +65,11 @@ public class DoublefuckListenerImplementation implements DoublefuckListener {
         try {
             if (txt.startsWith("[")) {
                 putIndents();
-                writer.write("while (*ptr) {\n");
+                writer.write("while (*ptr1) {\n");
+                indents++;
+            } else if (txt.startsWith("{")) {
+                putIndents();
+                writer.write("while (*ptr2) {\n");
                 indents++;
             }
         } catch (IOException e) {
@@ -76,6 +84,10 @@ public class DoublefuckListenerImplementation implements DoublefuckListener {
                 indents--;
                 putIndents();
                 writer.write("}\n");
+            } else if (txt.endsWith("}")) {
+                indents--;
+                putIndents();
+                writer.write("}\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -83,7 +95,48 @@ public class DoublefuckListenerImplementation implements DoublefuckListener {
     }
 
     public void enterOperator(DoublefuckParser.OperatorContext ctx) {
-
+        String txt = ctx.getText();
+        try {
+            if (txt.equals(">")) {
+                putIndents();
+                writer.write("++ptr1;\n");
+            } else if (txt.equals("<")) {
+                putIndents();
+                writer.write("--ptr1;\n");
+            } else if (txt.equals("+")) {
+                putIndents();
+                writer.write("++*ptr1;\n");
+            } else if (txt.equals("-")) {
+                putIndents();
+                writer.write("--*ptr1;\n");
+            } else if (txt.equals(".")) {
+                putIndents();
+                writer.write("putchar(*ptr1);\n");
+            } else if (txt.equals(",")) {
+                putIndents();
+                writer.write("*ptr1=getchar();\n");
+            } else if (txt.equals("v")) {
+                putIndents();
+                writer.write("++ptr2;\n");
+            } else if (txt.equals("^")) {
+                putIndents();
+                writer.write("--ptr2;\n");
+            } else if (txt.equals("/")) {
+                putIndents();
+                writer.write("++*ptr2;\n");
+            } else if (txt.equals("\\")) {
+                putIndents();
+                writer.write("--*ptr2;\n");
+            } else if (txt.equals(":")) {
+                putIndents();
+                writer.write("putchar(*ptr2);\n");
+            } else if (txt.equals(";")) {
+                putIndents();
+                writer.write("*ptr2=getchar();\n");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void exitOperator(DoublefuckParser.OperatorContext ctx) {
