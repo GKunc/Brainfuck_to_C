@@ -1,9 +1,11 @@
 import BCDfuck.BCDfuckCompiler;
+import Binaryfuck.BinaryfuckCompiler;
 import brainfork.BrainforkCompiler;
 import brainfuck.BrainfuckCompiler;
 import doublefuck.DoublefuckCompiler;
 import helpers.FileHelper;
 import interfaces.ICompiler;
+import jdk.internal.util.xml.impl.Pair;
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -68,9 +70,12 @@ public class Application {
         } else if(filePath.endsWith("brainfuck")) {
             System.out.println("brainfuck");
             return new BrainfuckCompiler();
-        } else {
+        } else if(filePath.endsWith("doublefuck")){
             System.out.println("doublefuck");
             return new DoublefuckCompiler();
+        } else {
+            System.out.println("Binaryfuck");
+            return new BinaryfuckCompiler();
         }
     }
 }
