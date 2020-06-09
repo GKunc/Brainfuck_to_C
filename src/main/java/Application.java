@@ -1,17 +1,22 @@
 import Ook.OokCompiler;
-import Binaryfuck.BinaryfuckCompiler;
+import binaryfuck.BinaryfuckCompiler;
 import brainfork.BrainforkCompiler;
 import brainfuck.BrainfuckCompiler;
+import brainloller.BrainlollerCompiler;
 import doublefuck.DoublefuckCompiler;
 import helpers.FileHelper;
 import interfaces.ICompiler;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Application {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
         String inputFilePath = null;
         String outputFilePath = null;
         String fileContent;
@@ -35,7 +40,12 @@ public class Application {
         }
 
         try {
-            fileContent = fileHelper.readFile(inputFilePath);
+            if(inputFilePath.endsWith("png")) {
+                fileContent = convertImageToString(inputFilePath);
+            } else {
+                fileContent = fileHelper.readFile(inputFilePath);
+            }
+            System.out.println("FileContent: " + fileContent + "\n\n\n");
         } catch (FileNotFoundException exception) {
             System.out.println("Nie można znaleźć pliku pod podaną ścieżką '" + inputFilePath + "'!");
             return;
@@ -72,9 +82,35 @@ public class Application {
         } else if(filePath.endsWith("doublefuck")){
             System.out.println("doublefuck");
             return new DoublefuckCompiler();
+        } else if(filePath.endsWith("png")){
+            System.out.println("brainloller");
+            return new BrainlollerCompiler();
         } else {
-            System.out.println("Binaryfuck");
+            System.out.println("binaryfuck");
             return new BinaryfuckCompiler();
         }
+    }
+
+    private static String convertImageToString(String inputFilePath) throws IOException {
+        File file = new File(inputFilePath);
+        BufferedImage image = ImageIO.read(file);
+        int iw = image.getWidth();
+        int ih = image.getHeight();
+
+        int widthCells = 14;
+        int heightCells = 12;
+        String result = "";
+        for (int y = 0; y < heightCells; y++) {
+            for (int x = 0; x < widthCells; x++) {
+                int pixel = image.getRGB((iw/widthCells)*x + 5, (ih/heightCells)*y + 5);
+                int R = (pixel >> 16) & 0xFF;
+                int G = (pixel >> 8) & 0xFF;
+                int B = pixel & 0xFF;
+                result += String.format("(%d, %d, %d) ", R, G, B);
+            }
+            result += "\n";
+        }
+
+        return result;
     }
 }

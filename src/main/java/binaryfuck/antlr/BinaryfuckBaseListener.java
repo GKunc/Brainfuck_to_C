@@ -1,52 +1,52 @@
-// Generated from brainloller.g4 by ANTLR 4.8
-package brainfuck.antlr;
+// Generated from Binaryfuck.g4 by ANTLR 4.8
+package binaryfuck.antlr;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link BrainfuckListener},
+ * This class provides an empty implementation of {@link BinaryfuckListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class BrainfuckBaseListener implements BrainfuckListener {
+public class BinaryfuckBaseListener implements BinaryfuckListener {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFile(BrainfuckParser.FileContext ctx) { }
+	@Override public void enterFile(BinaryfuckParser.FileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFile(BrainfuckParser.FileContext ctx) { }
+	@Override public void exitFile(BinaryfuckParser.FileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression(BrainfuckParser.ExpressionContext ctx) { }
+	@Override public void enterExpression(BinaryfuckParser.ExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression(BrainfuckParser.ExpressionContext ctx) { }
+	@Override public void exitExpression(BinaryfuckParser.ExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOperator(BrainfuckParser.OperatorContext ctx) { }
+	@Override public void enterOperator(BinaryfuckParser.OperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOperator(BrainfuckParser.OperatorContext ctx) { }
+	@Override public void exitOperator(BinaryfuckParser.OperatorContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

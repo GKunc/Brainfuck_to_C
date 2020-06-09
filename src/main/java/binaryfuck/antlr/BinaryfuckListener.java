@@ -1,5 +1,5 @@
 // Generated from Binaryfuck.g4 by ANTLR 4.8
-package Binaryfuck.antlr;
+package binaryfuck.antlr;
 
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 

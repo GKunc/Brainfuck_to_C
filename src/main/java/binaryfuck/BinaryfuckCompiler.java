@@ -1,7 +1,7 @@
-package Binaryfuck;
+package binaryfuck;
 
-import Binaryfuck.antlr.BinaryfuckLexer;
-import Binaryfuck.antlr.BinaryfuckParser;
+import binaryfuck.antlr.BinaryfuckLexer;
+import binaryfuck.antlr.BinaryfuckParser;
 import interfaces.ICompiler;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CharStream;

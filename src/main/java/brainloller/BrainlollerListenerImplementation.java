@@ -1,7 +1,7 @@
-package Binaryfuck;
+package brainloller;
 
-import Binaryfuck.antlr.BinaryfuckListener;
-import Binaryfuck.antlr.BinaryfuckParser;
+import brainloller.antlr.brainlollerListener;
+import brainloller.antlr.brainlollerParser;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -9,12 +9,12 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
-public class BinaryfuckListenerImplementation implements BinaryfuckListener {
+public class BrainlollerListenerImplementation implements brainlollerListener {
     private BufferedWriter writer;
     private int indents = 0;
     private int size;
 
-    public BinaryfuckListenerImplementation(BufferedWriter bufferedWriter, int size) {
+    public BrainlollerListenerImplementation(BufferedWriter bufferedWriter, int size) {
         this.writer = bufferedWriter;
         this.size = size;
     }
@@ -29,8 +29,7 @@ public class BinaryfuckListenerImplementation implements BinaryfuckListener {
         }
     }
 
-    @Override
-    public void enterFile(BinaryfuckParser.FileContext ctx) {
+    public void enterFile(brainlollerParser.FileContext ctx) {
         try {
             writer.write("#include <stdio.h>\n \n");
             writer.write("int main()\n");
@@ -45,10 +44,10 @@ public class BinaryfuckListenerImplementation implements BinaryfuckListener {
         }
     }
 
-    @Override
-    public void exitFile(BinaryfuckParser.FileContext ctx) {
+    public void exitFile(brainlollerParser.FileContext ctx) {
         try {
             putIndents();
+            writer.write("printf(\"\\n\");\n");
             writer.write("return 0;\n");
             indents--;
             putIndents();
@@ -58,11 +57,10 @@ public class BinaryfuckListenerImplementation implements BinaryfuckListener {
         }
     }
 
-    @Override
-    public void enterExpression(BinaryfuckParser.ExpressionContext ctx) {
+    public void enterExpression(brainlollerParser.ExpressionContext ctx) {
         String txt = ctx.getText();
         try {
-            if (txt.startsWith("110")) {
+            if (txt.startsWith("(255, 255, 0)")) {
                 putIndents();
                 writer.write("while (*ptr) {\n");
                 indents++;
@@ -72,11 +70,10 @@ public class BinaryfuckListenerImplementation implements BinaryfuckListener {
         }
     }
 
-    @Override
-    public void exitExpression(BinaryfuckParser.ExpressionContext ctx) {
+    public void exitExpression(brainlollerParser.ExpressionContext ctx) {
         String txt = ctx.getText();
         try {
-            if (txt.endsWith("111")) {
+            if (txt.endsWith("(128, 128, 0)")) {
                 indents--;
                 putIndents();
                 writer.write("}\n");
@@ -86,31 +83,30 @@ public class BinaryfuckListenerImplementation implements BinaryfuckListener {
         }
     }
 
-    @Override
-    public void enterOperator(BinaryfuckParser.OperatorContext ctx) {
+    public void enterOperator(brainlollerParser.OperatorContext ctx) {
         String txt = ctx.getText();
         try {
-            if (txt.equals("010")) {
+            if (txt.equals("(255, 0, 0)")) {
                 putIndents();
                 writer.write("++ptr;\n");
             }
-            else if (txt.equals("011")) {
+            else if (txt.equals("(128, 0, 0)")) {
                 putIndents();
                 writer.write("--ptr;\n");
             }
-            else if (txt.equals("000")) {
+            else if (txt.equals("(0, 255, 0)")) {
                 putIndents();
                 writer.write("++*ptr;\n");
             }
-            else if (txt.equals("001")) {
+            else if (txt.equals("(0, 128, 0)")) {
                 putIndents();
                 writer.write("--*ptr;\n");
             }
-            else if (txt.equals("100")) {
+            else if (txt.equals("(0, 0, 255)")) {
                 putIndents();
                 writer.write("putchar(*ptr);\n");
             }
-            else if (txt.equals("101")) {
+            else if (txt.equals("(0, 0, 128)")) {
                 putIndents();
                 writer.write("*ptr=getchar();\n");
             }
@@ -119,27 +115,22 @@ public class BinaryfuckListenerImplementation implements BinaryfuckListener {
         }
     }
 
-    @Override
-    public void exitOperator(BinaryfuckParser.OperatorContext ctx) {
+    public void exitOperator(brainlollerParser.OperatorContext ctx) {
 
     }
 
-    @Override
     public void visitTerminal(TerminalNode terminalNode) {
 
     }
 
-    @Override
     public void visitErrorNode(ErrorNode errorNode) {
 
     }
 
-    @Override
     public void enterEveryRule(ParserRuleContext parserRuleContext) {
 
     }
 
-    @Override
     public void exitEveryRule(ParserRuleContext parserRuleContext) {
 
     }

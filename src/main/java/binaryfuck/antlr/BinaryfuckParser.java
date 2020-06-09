@@ -1,27 +1,22 @@
-// Generated from brainloller.g4 by ANTLR 4.8
-package brainfuck.antlr;
+// Generated from Binaryfuck.g4 by ANTLR 4.8
+package binaryfuck.antlr;
 
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.atn.ATN;
-import org.antlr.v4.runtime.atn.ATNDeserializer;
-import org.antlr.v4.runtime.atn.ParserATNSimulator;
-import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.tree.ParseTreeListener;
-import org.antlr.v4.runtime.tree.TerminalNode;
-
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.tree.*;
 import java.util.List;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class BrainfuckParser extends Parser {
+public class BinaryfuckParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.8", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		GREATER=1, LOWER=2, PLUS=3, MINUS=4, DOT=5, COMMA=6, LPARENTHESES=7, RPARENTHESES=8, 
-		WS=9;
+		ZEROONEZERO=1, ZEROONEONE=2, ZEROZEROZERO=3, ZEROZEROONE=4, ONEZEROZERO=5, 
+		ONEZEROONE=6, ONEONEZERO=7, ONEONEONE=8, WS=9;
 	public static final int
 		RULE_file = 0, RULE_expression = 1, RULE_operator = 2;
 	private static String[] makeRuleNames() {
@@ -33,14 +28,15 @@ public class BrainfuckParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'>'", "'<'", "'+'", "'-'", "'.'", "','", "'['", "']'"
+			null, "'010'", "'011'", "'000'", "'001'", "'100'", "'101'", "'110'", 
+			"'111'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "GREATER", "LOWER", "PLUS", "MINUS", "DOT", "COMMA", "LPARENTHESES", 
-			"RPARENTHESES", "WS"
+			null, "ZEROONEZERO", "ZEROONEONE", "ZEROZEROZERO", "ZEROZEROONE", "ONEZEROZERO", 
+			"ONEZEROONE", "ONEONEZERO", "ONEONEONE", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -78,7 +74,7 @@ public class BrainfuckParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "brainloller.g4"; }
+	public String getGrammarFileName() { return "Binaryfuck.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -89,7 +85,7 @@ public class BrainfuckParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public BrainfuckParser(TokenStream input) {
+	public BinaryfuckParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -107,11 +103,11 @@ public class BrainfuckParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_file; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuckListener ) ((BrainfuckListener)listener).enterFile(this);
+			if ( listener instanceof BinaryfuckListener ) ((BinaryfuckListener)listener).enterFile(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuckListener ) ((BrainfuckListener)listener).exitFile(this);
+			if ( listener instanceof BinaryfuckListener ) ((BinaryfuckListener)listener).exitFile(this);
 		}
 	}
 
@@ -125,7 +121,7 @@ public class BrainfuckParser extends Parser {
 			setState(9);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA) | (1L << LPARENTHESES))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << ZEROONEZERO) | (1L << ZEROONEONE) | (1L << ZEROZEROZERO) | (1L << ZEROZEROONE) | (1L << ONEZEROZERO) | (1L << ONEZEROONE) | (1L << ONEONEZERO))) != 0)) {
 				{
 				{
 				setState(6);
@@ -153,8 +149,8 @@ public class BrainfuckParser extends Parser {
 		public OperatorContext operator() {
 			return getRuleContext(OperatorContext.class,0);
 		}
-		public TerminalNode LPARENTHESES() { return getToken(BrainfuckParser.LPARENTHESES, 0); }
-		public TerminalNode RPARENTHESES() { return getToken(BrainfuckParser.RPARENTHESES, 0); }
+		public TerminalNode ONEONEZERO() { return getToken(BinaryfuckParser.ONEONEZERO, 0); }
+		public TerminalNode ONEONEONE() { return getToken(BinaryfuckParser.ONEONEONE, 0); }
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
@@ -167,11 +163,11 @@ public class BrainfuckParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_expression; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuckListener ) ((BrainfuckListener)listener).enterExpression(this);
+			if ( listener instanceof BinaryfuckListener ) ((BinaryfuckListener)listener).enterExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuckListener ) ((BrainfuckListener)listener).exitExpression(this);
+			if ( listener instanceof BinaryfuckListener ) ((BinaryfuckListener)listener).exitExpression(this);
 		}
 	}
 
@@ -183,27 +179,27 @@ public class BrainfuckParser extends Parser {
 			setState(21);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case GREATER:
-			case LOWER:
-			case PLUS:
-			case MINUS:
-			case DOT:
-			case COMMA:
+			case ZEROONEZERO:
+			case ZEROONEONE:
+			case ZEROZEROZERO:
+			case ZEROZEROONE:
+			case ONEZEROZERO:
+			case ONEZEROONE:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(12);
 				operator();
 				}
 				break;
-			case LPARENTHESES:
+			case ONEONEZERO:
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(13);
-				match(LPARENTHESES);
+				match(ONEONEZERO);
 				setState(17);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA) | (1L << LPARENTHESES))) != 0)) {
+				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << ZEROONEZERO) | (1L << ZEROONEONE) | (1L << ZEROZEROZERO) | (1L << ZEROZEROONE) | (1L << ONEZEROZERO) | (1L << ONEZEROONE) | (1L << ONEONEZERO))) != 0)) {
 					{
 					{
 					setState(14);
@@ -215,7 +211,7 @@ public class BrainfuckParser extends Parser {
 					_la = _input.LA(1);
 				}
 				setState(20);
-				match(RPARENTHESES);
+				match(ONEONEONE);
 				}
 				break;
 			default:
@@ -234,23 +230,23 @@ public class BrainfuckParser extends Parser {
 	}
 
 	public static class OperatorContext extends ParserRuleContext {
-		public TerminalNode GREATER() { return getToken(BrainfuckParser.GREATER, 0); }
-		public TerminalNode LOWER() { return getToken(BrainfuckParser.LOWER, 0); }
-		public TerminalNode PLUS() { return getToken(BrainfuckParser.PLUS, 0); }
-		public TerminalNode MINUS() { return getToken(BrainfuckParser.MINUS, 0); }
-		public TerminalNode DOT() { return getToken(BrainfuckParser.DOT, 0); }
-		public TerminalNode COMMA() { return getToken(BrainfuckParser.COMMA, 0); }
+		public TerminalNode ZEROONEZERO() { return getToken(BinaryfuckParser.ZEROONEZERO, 0); }
+		public TerminalNode ZEROONEONE() { return getToken(BinaryfuckParser.ZEROONEONE, 0); }
+		public TerminalNode ZEROZEROZERO() { return getToken(BinaryfuckParser.ZEROZEROZERO, 0); }
+		public TerminalNode ZEROZEROONE() { return getToken(BinaryfuckParser.ZEROZEROONE, 0); }
+		public TerminalNode ONEZEROZERO() { return getToken(BinaryfuckParser.ONEZEROZERO, 0); }
+		public TerminalNode ONEZEROONE() { return getToken(BinaryfuckParser.ONEZEROONE, 0); }
 		public OperatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_operator; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuckListener ) ((BrainfuckListener)listener).enterOperator(this);
+			if ( listener instanceof BinaryfuckListener ) ((BinaryfuckListener)listener).enterOperator(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof BrainfuckListener ) ((BrainfuckListener)listener).exitOperator(this);
+			if ( listener instanceof BinaryfuckListener ) ((BinaryfuckListener)listener).exitOperator(this);
 		}
 	}
 
@@ -263,7 +259,7 @@ public class BrainfuckParser extends Parser {
 			{
 			setState(23);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GREATER) | (1L << LOWER) | (1L << PLUS) | (1L << MINUS) | (1L << DOT) | (1L << COMMA))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << ZEROONEZERO) | (1L << ZEROONEONE) | (1L << ZEROZEROZERO) | (1L << ZEROZEROONE) | (1L << ONEZEROZERO) | (1L << ONEZEROONE))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {

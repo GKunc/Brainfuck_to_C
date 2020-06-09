@@ -1,7 +1,7 @@
-package Ook;
+package binaryfuck;
 
-import Ook.antlr.OokListener;
-import Ook.antlr.OokParser;
+import binaryfuck.antlr.BinaryfuckListener;
+import binaryfuck.antlr.BinaryfuckParser;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -9,12 +9,12 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
-public class OokListenerImplementation implements OokListener {
+public class BinaryfuckListenerImplementation implements BinaryfuckListener {
     private BufferedWriter writer;
     private int indents = 0;
     private int size;
 
-    public OokListenerImplementation(BufferedWriter bufferedWriter, int size) {
+    public BinaryfuckListenerImplementation(BufferedWriter bufferedWriter, int size) {
         this.writer = bufferedWriter;
         this.size = size;
     }
@@ -29,7 +29,8 @@ public class OokListenerImplementation implements OokListener {
         }
     }
 
-    public void enterFile(OokParser.FileContext ctx) {
+    @Override
+    public void enterFile(BinaryfuckParser.FileContext ctx) {
         try {
             writer.write("#include <stdio.h>\n \n");
             writer.write("int main()\n");
@@ -44,10 +45,10 @@ public class OokListenerImplementation implements OokListener {
         }
     }
 
-    public void exitFile(OokParser.FileContext ctx) {
+    @Override
+    public void exitFile(BinaryfuckParser.FileContext ctx) {
         try {
             putIndents();
-            writer.write("printf(\"\\n\");\n");
             writer.write("return 0;\n");
             indents--;
             putIndents();
@@ -57,10 +58,11 @@ public class OokListenerImplementation implements OokListener {
         }
     }
 
-    public void enterExpression(OokParser.ExpressionContext ctx) {
+    @Override
+    public void enterExpression(BinaryfuckParser.ExpressionContext ctx) {
         String txt = ctx.getText();
         try {
-            if (txt.startsWith("Ook! Ook?")) {
+            if (txt.startsWith("110")) {
                 putIndents();
                 writer.write("while (*ptr) {\n");
                 indents++;
@@ -70,10 +72,11 @@ public class OokListenerImplementation implements OokListener {
         }
     }
 
-    public void exitExpression(OokParser.ExpressionContext ctx) {
+    @Override
+    public void exitExpression(BinaryfuckParser.ExpressionContext ctx) {
         String txt = ctx.getText();
         try {
-            if (txt.endsWith("Ook? Ook!")) {
+            if (txt.endsWith("111")) {
                 indents--;
                 putIndents();
                 writer.write("}\n");
@@ -83,30 +86,31 @@ public class OokListenerImplementation implements OokListener {
         }
     }
 
-    public void enterOperator(OokParser.OperatorContext ctx) {
+    @Override
+    public void enterOperator(BinaryfuckParser.OperatorContext ctx) {
         String txt = ctx.getText();
         try {
-            if (txt.equals("Ook. Ook?")) {
+            if (txt.equals("010")) {
                 putIndents();
                 writer.write("++ptr;\n");
             }
-            else if (txt.equals("Ook? Ook.")) {
+            else if (txt.equals("011")) {
                 putIndents();
                 writer.write("--ptr;\n");
             }
-            else if (txt.equals("Ook. Ook.")) {
+            else if (txt.equals("000")) {
                 putIndents();
                 writer.write("++*ptr;\n");
             }
-            else if (txt.equals("Ook! Ook!")) {
+            else if (txt.equals("001")) {
                 putIndents();
                 writer.write("--*ptr;\n");
             }
-            else if (txt.equals("Ook! Ook.")) {
+            else if (txt.equals("100")) {
                 putIndents();
                 writer.write("putchar(*ptr);\n");
             }
-            else if (txt.equals("Ook. Ook!")) {
+            else if (txt.equals("101")) {
                 putIndents();
                 writer.write("*ptr=getchar();\n");
             }
@@ -115,22 +119,27 @@ public class OokListenerImplementation implements OokListener {
         }
     }
 
-    public void exitOperator(OokParser.OperatorContext ctx) {
+    @Override
+    public void exitOperator(BinaryfuckParser.OperatorContext ctx) {
 
     }
 
+    @Override
     public void visitTerminal(TerminalNode terminalNode) {
 
     }
 
+    @Override
     public void visitErrorNode(ErrorNode errorNode) {
 
     }
 
+    @Override
     public void enterEveryRule(ParserRuleContext parserRuleContext) {
 
     }
 
+    @Override
     public void exitEveryRule(ParserRuleContext parserRuleContext) {
 
     }

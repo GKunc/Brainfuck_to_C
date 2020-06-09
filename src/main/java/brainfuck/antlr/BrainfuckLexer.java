@@ -1,4 +1,4 @@
-// Generated from Brainfuck.g4 by ANTLR 4.8
+// Generated from brainloller.g4 by ANTLR 4.8
 package brainfuck.antlr;
 
 import org.antlr.v4.runtime.Lexer;
@@ -89,7 +89,7 @@ public class BrainfuckLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Brainfuck.g4"; }
+	public String getGrammarFileName() { return "brainloller.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

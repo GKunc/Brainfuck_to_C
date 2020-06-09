@@ -1,4 +1,4 @@
-package brainfuck.antlr;// Generated from Brainfuck.g4 by ANTLR 4.8
+package brainfuck.antlr;// Generated from brainloller.g4 by ANTLR 4.8
 
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
