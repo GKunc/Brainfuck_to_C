@@ -1,0 +1,17 @@
+GREATER=1
+LOWER=2
+PLUS=3
+MINUS=4
+DOT=5
+COMMA=6
+LPARENTHESES=7
+RPARENTHESES=8
+WS=9
+'Ook. Ook?'=1
+'Ook? Ook.'=2
+'Ook. Ook.'=3
+'Ook! Ook!'=4
+'Ook! Ook.'=5
+'Ook. Ook!'=6
+'Ook! Ook?'=7
+'Ook? Ook!'=8

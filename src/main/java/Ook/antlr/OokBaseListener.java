@@ -1,52 +1,53 @@
-// Generated from BCDfuck.g4 by ANTLR 4.8
-package BCDfuck.antlr;
+// Generated from Ook.g4 by ANTLR 4.8
 
+import Ook.antlr.OokListener;
+import Ook.antlr.OokParser;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link BCDfuckListener},
+ * This class provides an empty implementation of {@link OokListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class BCDfuckBaseListener implements BCDfuckListener {
+public class OokBaseListener implements OokListener {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFile(BCDfuckParser.FileContext ctx) { }
+	@Override public void enterFile(OokParser.FileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFile(BCDfuckParser.FileContext ctx) { }
+	@Override public void exitFile(OokParser.FileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression(BCDfuckParser.ExpressionContext ctx) { }
+	@Override public void enterExpression(OokParser.ExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression(BCDfuckParser.ExpressionContext ctx) { }
+	@Override public void exitExpression(OokParser.ExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOperator(BCDfuckParser.OperatorContext ctx) { }
+	@Override public void enterOperator(OokParser.OperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOperator(BCDfuckParser.OperatorContext ctx) { }
+	@Override public void exitOperator(OokParser.OperatorContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

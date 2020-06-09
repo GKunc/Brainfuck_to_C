@@ -1,6 +1,9 @@
-package brainfuck;
+package Ook;
 
-import brainfuck.antlr.BrainfuckListener;
+import Binaryfuck.antlr.BinaryfuckListener;
+import Binaryfuck.antlr.BinaryfuckParser;
+import Ook.antlr.OokListener;
+import Ook.antlr.OokParser;
 import brainfuck.antlr.BrainfuckParser;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -9,12 +12,12 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
-public class BrainfuckListenerImplementation implements BrainfuckListener {
+public class OokListenerImplementation implements OokListener {
     private BufferedWriter writer;
     private int indents = 0;
     private int size;
 
-    public BrainfuckListenerImplementation(BufferedWriter bufferedWriter, int size) {
+    public OokListenerImplementation(BufferedWriter bufferedWriter, int size) {
         this.writer = bufferedWriter;
         this.size = size;
     }
@@ -29,7 +32,7 @@ public class BrainfuckListenerImplementation implements BrainfuckListener {
         }
     }
 
-    public void enterFile(BrainfuckParser.FileContext ctx) {
+    public void enterFile(OokParser.FileContext ctx) {
         try {
             writer.write("#include <stdio.h>\n \n");
             writer.write("int main()\n");
@@ -44,10 +47,10 @@ public class BrainfuckListenerImplementation implements BrainfuckListener {
         }
     }
 
-    public void exitFile(BrainfuckParser.FileContext ctx) {
+    public void exitFile(OokParser.FileContext ctx) {
         try {
             putIndents();
-            writer.write("\n");
+            writer.write("printf(\"\\n\");\n");
             writer.write("return 0;\n");
             indents--;
             putIndents();
@@ -57,10 +60,10 @@ public class BrainfuckListenerImplementation implements BrainfuckListener {
         }
     }
 
-    public void enterExpression(BrainfuckParser.ExpressionContext ctx) {
+    public void enterExpression(OokParser.ExpressionContext ctx) {
         String txt = ctx.getText();
         try {
-            if (txt.startsWith("[")) {
+            if (txt.startsWith("Ook! Ook?")) {
                 putIndents();
                 writer.write("while (*ptr) {\n");
                 indents++;
@@ -70,10 +73,10 @@ public class BrainfuckListenerImplementation implements BrainfuckListener {
         }
     }
 
-    public void exitExpression(BrainfuckParser.ExpressionContext ctx) {
+    public void exitExpression(OokParser.ExpressionContext ctx) {
         String txt = ctx.getText();
         try {
-            if (txt.endsWith("]")) {
+            if (txt.endsWith("Ook? Ook!")) {
                 indents--;
                 putIndents();
                 writer.write("}\n");
@@ -83,30 +86,30 @@ public class BrainfuckListenerImplementation implements BrainfuckListener {
         }
     }
 
-    public void enterOperator(BrainfuckParser.OperatorContext ctx) {
+    public void enterOperator(OokParser.OperatorContext ctx) {
         String txt = ctx.getText();
         try {
-            if (txt.equals(">")) {
+            if (txt.equals("Ook. Ook?")) {
                 putIndents();
                 writer.write("++ptr;\n");
             }
-            else if (txt.equals("<")) {
+            else if (txt.equals("Ook? Ook.")) {
                 putIndents();
                 writer.write("--ptr;\n");
             }
-            else if (txt.equals("+")) {
+            else if (txt.equals("Ook. Ook.")) {
                 putIndents();
                 writer.write("++*ptr;\n");
             }
-            else if (txt.equals("-")) {
+            else if (txt.equals("Ook! Ook!")) {
                 putIndents();
                 writer.write("--*ptr;\n");
             }
-            else if (txt.equals(".")) {
+            else if (txt.equals("Ook! Ook.")) {
                 putIndents();
                 writer.write("putchar(*ptr);\n");
             }
-            else if (txt.equals(",")) {
+            else if (txt.equals("Ook. Ook!")) {
                 putIndents();
                 writer.write("*ptr=getchar();\n");
             }
@@ -115,7 +118,7 @@ public class BrainfuckListenerImplementation implements BrainfuckListener {
         }
     }
 
-    public void exitOperator(BrainfuckParser.OperatorContext ctx) {
+    public void exitOperator(OokParser.OperatorContext ctx) {
 
     }
 

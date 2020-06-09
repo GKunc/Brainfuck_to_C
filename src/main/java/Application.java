@@ -1,11 +1,10 @@
-import BCDfuck.BCDfuckCompiler;
+import Ook.OokCompiler;
 import Binaryfuck.BinaryfuckCompiler;
 import brainfork.BrainforkCompiler;
 import brainfuck.BrainfuckCompiler;
 import doublefuck.DoublefuckCompiler;
 import helpers.FileHelper;
 import interfaces.ICompiler;
-import jdk.internal.util.xml.impl.Pair;
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -51,7 +50,7 @@ public class Application {
 
         compiler = createCompiler(inputFilePath);
         compiler.compile(fileContent, bufferedWriter);
-
+        System.out.println("Kompilacja zakonczona!");
         try {
             bufferedWriter.close();
         } catch (IOException e) {
@@ -61,9 +60,9 @@ public class Application {
     }
 
     private static ICompiler createCompiler(String filePath) {
-        if(filePath.endsWith("BCDfuck")) {
-            System.out.println("BCDfuck");
-            return new BCDfuckCompiler();
+        if(filePath.endsWith("Ook")) {
+            System.out.println("Ook");
+            return new OokCompiler();
         } else if(filePath.endsWith("brainfork")) {
             System.out.println("brainfork");
             return new BrainforkCompiler();

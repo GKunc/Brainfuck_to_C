@@ -51,6 +51,8 @@ public class DoublefuckListenerImplementation implements DoublefuckListener {
     public void exitFile(DoublefuckParser.FileContext ctx) {
         try {
             putIndents();
+            writer.write("\n");
+            writer.write("printf(\"\\n\");\n");
             writer.write("return 0;\n");
             indents--;
             putIndents();
